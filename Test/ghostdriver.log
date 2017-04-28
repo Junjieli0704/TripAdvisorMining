@@ -1,0 +1,12 @@
+[INFO  - 2017-04-27T07:41:15.570Z] GhostDriver - Main - running on port 52175
+[INFO  - 2017-04-27T07:41:16.630Z] Session [e56b90c0-2b1c-11e7-86b8-35c39ab5f396] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":false,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-04-27T07:41:16.630Z] Session [e56b90c0-2b1c-11e7-86b8-35c39ab5f396] - page.customHeaders:  - {}
+[INFO  - 2017-04-27T07:41:16.631Z] Session [e56b90c0-2b1c-11e7-86b8-35c39ab5f396] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"windows-7-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"},"phantomjs.page.settings.loadImages":false}
+[INFO  - 2017-04-27T07:41:16.631Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: e56b90c0-2b1c-11e7-86b8-35c39ab5f396
+[ERROR - 2017-04-27T07:41:17.298Z] Session [e56b90c0-2b1c-11e7-86b8-35c39ab5f396] - page.onError - msg: ReferenceError: Can't find variable: require
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-04-27T07:41:17.298Z] Session [e56b90c0-2b1c-11e7-86b8-35c39ab5f396] - page.onError - stack:
+  global code (https://www.tripadvisor.com/MemberOverlay?Mode=owa&uid=02529ADBAA682501D747BC0F64FAB3C0&c=&src=LT_2555064&fus=false&partner=false&LsoId=&metaReferer=Hotel_Review:3636)
+
+  phantomjs://platform/console++.js:263 in error
