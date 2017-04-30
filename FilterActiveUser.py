@@ -6,6 +6,7 @@
 # -------------------------------------------------------------------- #
 
 from UsefulLibs import usefulAPI,usefulDataStruct
+import json
 
 def get_all_user_info(in_user_file_fold):
     uid_dict = {}
@@ -51,10 +52,33 @@ def filter_active_user(user_info_dict_list,hotel_review_number_condition,out_fil
             out_user_info_dict_list.append(user_info_dict)
     usefulDataStruct.print_out_user_info_dat_to_txt(out_user_info_dict_list,out_file)
 
+def filter_demo_users(in_file_fold = '../Data/TxtData/TripAdvisorActiveUserPageInfoNew/',
+                      out_file = 'a.json'):
+    all_user_dict_list = []
+    filter_user_dict_list = []
+    file_list = usefulAPI.get_dir_files(in_file_fold,True)
+    for file in file_list:
+        user_info_dict = json.loads(open(file,'r').read())
+        all_user_dict_list.append(user_info_dict)
+    print len(all_user_dict_list)
+    for user_dict_info in all_user_dict_list:
+        if user_dict_info['user_info_str'] == 'NULL': continue
+        user_info_str_list = user_dict_info['user_info_str'].split('-_-_-_-_-')
+        if len(user_info_str_list) == 2:
+            user_info_str_list[1] = user_info_str_list[1].replace('From','from').replace('Man','man').replace('Woman','woman')
+            if user_info_str_list[1].split('from')[0] == '': continue
+            #print user_info_str_list[1].split('from')[0]
+            filter_user_dict_list.append(user_dict_info)
+    print len(filter_user_dict_list)
+    usefulDataStruct.print_out_user_info_dat_to_json(filter_user_dict_list,out_file)
+
+
+
 
 if __name__ == '__main__':
-    in_user_file_fold = '../Data/TxtData/TripAdvisorUserPageInfo/'
-    user_info_dict_list = get_all_user_info(in_user_file_fold)
-    filter_active_user(user_info_dict_list=user_info_dict_list,
-                       hotel_review_number_condition='20+',
-                       out_file='active_user.txt')
+    #in_user_file_fold = '../Data/TxtData/TripAdvisorUserPageInfo/'
+    #user_info_dict_list = get_all_user_info(in_user_file_fold)
+    #filter_active_user(user_info_dict_list=user_info_dict_list,
+    #                   hotel_review_number_condition='20+',
+    #                   out_file='active_user.txt')
+    filter_demo_users()

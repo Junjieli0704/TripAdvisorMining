@@ -172,8 +172,16 @@ def crawl_test():
     print '---'.join(txt_list)
     #print user_info_bs
 
-def get_finish_active_user_list(in_file_fold = '../Data/TxtData/TripAdvisorActiveUserPageInfo/',
+def get_finish_active_user_list(in_file_fold = '../Data/TxtData/TripAdvisorActiveUserPageInfoNew/',
                                 out_finish_file = 'finish_active_user_list.txt'):
+
+    file_name_list = usefulAPI.get_dir_files(in_file_fold,False)
+    out_line_con_list = []
+    for file_name in file_name_list:
+        out_line_con_list.append(file_name.split('.')[0])
+    open(out_finish_file,'w+').write('\n'.join(out_line_con_list))
+    return out_line_con_list
+    '''
     file_name_list = usefulAPI.get_dir_files(in_file_fold,True)
     out_user_id_list = []
     for file in file_name_list:
@@ -188,12 +196,23 @@ def get_finish_active_user_list(in_file_fold = '../Data/TxtData/TripAdvisorActiv
                 out_user_id_list.append(word_con_list[1])
     open(out_finish_file,'w+').write('\n'.join(out_user_id_list))
     return out_user_id_list
+    '''
+
+
+def get_finish_active_file(in_file_fold = '../Data/TxtData/TripAdvisorActiveUserPageInfoNew/',
+                           out_file = 'finish_active_user_list.txt'):
+    file_name_list = usefulAPI.get_dir_files(in_file_fold,False)
+    out_line_con_list = []
+    for file_name in file_name_list:
+        out_line_con_list.append(file_name.split('.')[0])
+    open(out_file,'w+').write('\n'.join(out_line_con_list))
 
 
 
 if __name__ == '__main__':
+    #get_finish_active_file()
 
-    active_user_file = 'active_user_1_3.txt'
+    active_user_file = 'active_user.txt'
     finish_active_file = 'finish_active_user_list.txt'
     active_user_list = load_active_user_list(active_user_file)
     new_active_user_list = filter_finish_user(active_user_list,get_finish_active_user_list())

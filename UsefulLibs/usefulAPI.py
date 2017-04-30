@@ -4,6 +4,7 @@ import time
 import shutil
 import datetime
 import json
+import usefulDataStruct
 # A list of useful API
 
 # Make a dir
